@@ -10,8 +10,7 @@ LIMIT 10
 --3
 SELECT last_name,home_phone FROM employees
 WHERE region IS NULL
-SELECT * FROM employees
-WHERE region IS NULL
+
 
 --4
 SELECT country, count(*) FROM suppliers
@@ -27,14 +26,14 @@ ORDER BY SUM(freight) DESC
 
 --6
 SELECT country FROM employees
-UNION
+INTERSECT
 SELECT country from suppliers
-UNION
+INTERSECT
 SELECT country from customers
 
 --7
 SELECT country FROM customers
-UNION
+INTERSECT
 SELECT country from suppliers
 EXCEPT
 SELECT country from employees
